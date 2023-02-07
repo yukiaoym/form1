@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import styled from 'styled-components';
-import { Text, Pulldown } from './Elements';
+import { Text, Pulldown, Radio } from './Elements';
 import common from './common.json';
 import React, { useState } from 'react';
 import Progress from './Progress';
@@ -124,7 +124,7 @@ export default function Form() {
                             ]} 
                             required={false}
                         />
-                        
+                        <Radio label='DKIM認証を利用する' register={register} choices={['利用する', '利用しない']} required={false}　/>
                         <Text label='希望アクセスURL1' register={register} type="text" required={true} errors={errors} />
                         <Text label='希望アクセスURL2' register={register} type="text" required={false} errors={errors} />
                         <Text label='希望アクセスURL3' register={register} type="text" required={false} errors={errors} />

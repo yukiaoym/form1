@@ -69,11 +69,18 @@ export function Pulldown({label, register, choices, required, disabled}:InputPro
                 {choices.map((item, index) => <option key={index} value={item}>{item}</option>)}
             </select>
             :<></>}
-            {/* <ErrorMessage
-                errors={errors}
-                name={label}
-                render={({ message } : {message: string }) => <span>{message}</span>}
-            /> */}
+        </InputArea>
+    );
+}
+
+export function Radio({label, register, required, choices }:InputProps) {
+    return (
+        <InputArea required={required}>
+            <label>{label} <span className="required">*</span></label>
+            <ToolTip label={label}/>
+            { choices !== undefined ?
+                <>{choices.map((item, index) => <input type='radio' {...register(label)} value={item} /> )}</>
+            :<></>}
         </InputArea>
     );
 }
