@@ -1,0 +1,18 @@
+{
+    "Color": {
+        "bg": "#FFF",
+        "bg2": "#e7eae7",
+        "input_bg": "#F5F5F5",
+        "text": "#373737",
+        "text_w": "#FFF",
+        "main": "#007e66",
+        "point": "#f25a86",
+        "gray": "#d3d3d3"
+    },
+    "ProductColor": {
+        "CyberMail": "#82BB48",
+        "MailGates": "#B71F22",
+        "MailBase": "#14568F",
+        "CYBERCHAT": "#864191"
+    }
+}
