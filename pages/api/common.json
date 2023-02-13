@@ -15,5 +15,32 @@
         "MailGates": "#B71F22",
         "MailBase": "#14568F",
         "CYBERCHAT": "#864191"
-    }
+    },
+    "ServiceList": [
+        "CYBERMAIL Σ",
+        "Cloud Mail SECURITYSUITE アーカイブ",
+        "Cloud Mail SECURITYSUITE 送信対策",
+        "Cloud Mail SECURITYSUITE 受信対策",
+        "Cloud Mail SECURITYSUITE 送受信対策",
+        "Cloud Mail SECURITYSUITE ビジネス",
+        "Cloud Mail SECURITYSUITE エンタープライズ",
+        "MAILGATES Σ",
+        "MAILBASE Σ",
+        "CYBERCHAT",
+        "損保セキュアメール",
+        "Symantec乗換キャンペーンセキュリティパック",
+        "CYBERMAIL Σ ST",
+        "EMERGENCY MAIL"
+    ],
+    "SAMLIdpList": [
+        "-- 選択してください --",
+        "ADFS",
+        "HENNGE One",
+        "CloudGate UNO",
+        "Okta",
+        "Nextset",
+        "Google Workspace",
+        "Azure AD",
+        "Extic"
+    ]
 }

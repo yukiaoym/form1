@@ -2,7 +2,7 @@ import { Path, UseFormRegister, useFieldArray, Control } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import styled from 'styled-components';
 import common from './common.json';
-import { IFormValues } from './Form';
+import { IFormValues } from './IFormValues';
 import ToolTip from './ToolTip'
 
 type InputProps = {

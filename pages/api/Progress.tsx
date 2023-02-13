@@ -1,10 +1,10 @@
-import { useForm, SubmitHandler } from "react-hook-form";
 import styled from 'styled-components';
 import common from './common.json';
 
 type PageProps = {
     page: number;
 }
+
 const ProgressArea = styled.div<{ page: number }>`
     margin-bottom: 48px;
     ol {
