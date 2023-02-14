@@ -4,6 +4,7 @@ import React from 'react';
 import Button from "./Button";
 import styled from 'styled-components';
 import common from './common.json';
+import { Vast_Shadow } from "@next/font/google";
 
 const Table = styled.table`
     width: 100%;
@@ -29,20 +30,28 @@ const SubTitle = styled.h2`
     margin-bottom: 12px;
 `
 
+
+
 export default function Confirm({ onBack }: {onBack:() => void}) {
     const methods = useFormContext<IFormValues>();
     const { getValues } = methods;
     const values = getValues();
-    console.log(values)
-    var names = []
-    for (const key in values) {
-        names.push(key)
-    }
+
+    // var names = []
+    // for (const key in values) {
+
+    //     if (typeof values[key] == string) {
+
+    //     }
+    //     names.push(key)
+    // }
+
+
 
     return (
         <>
             <SubTitle>この内容で送信してもよろしいですか？</SubTitle>
-            <Table>
+            {/* <Table>
                 <tbody>
                     {names.map((item, index) => 
                         { if(item !== 'SAML IdPメタデータ') {
@@ -62,7 +71,7 @@ export default function Confirm({ onBack }: {onBack:() => void}) {
                         }}
                     )}
                 </tbody>
-            </Table>
+            </Table> */}
             <Button value='送信' onBack={onBack} isBack={true} />
         </>
     )

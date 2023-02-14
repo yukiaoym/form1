@@ -1,12 +1,17 @@
-export interface IFormValues {
-    //[index:string]: string;
-    '依頼事項': string;
-    '開通希望日': string;
-    'ご契約社名': string;
-    'ドメイン': string;
-    'ご契約サービス': string;
-    'ご契約アカウント数': number;
-    'ユーザー認証方式': string;
+// export interface IFormValues<T> {
+//     value: T;
+// }
+
+
+export type IFormValues = {
+
+    依頼事項: string;
+    開通希望日: string;
+    ご契約社名: string;
+    ドメイン: string;
+    ご契約サービス: string;
+    ご契約アカウント数: number;
+    ユーザー認証方式: string;
     'SAML 担当者名': string;
     'SAML 担当者メールアドレス': string;
     'SAML IdPサービス名': string;
@@ -22,16 +27,31 @@ export interface IFormValues {
     'O365・G_suite切替': string;
     '切替前のMXレコード': string;
     '切替後のMXレコード': string;
+    'MXレコード': string[];
     '中継許可サーバーIPアドレス': string;
     '中継先サーバーIPアドレス': string;
     '中継先サーバーFQDN': string;
+    '中継先サーバー': string[];
     '認証_サーバー': string;
     '認証_ポート番号': number;
+    '認証サーバー': string[];
     'POP認証時にメールアドレス全体で認証する': string;
     'DKIM認証を利用する': string;
     'MGΣプラン': string[];
-    'アクセスURL1（第1希望）': string;
-    'アクセスURL1（第2希望）': string;
-    'アクセスURL1（第3希望）': string;
+    'アクセスURL_第1希望':string;
+    'アクセスURL_第2希望': string;
+    'アクセスURL_第3希望': string;
+    'アクセスURL': {
+        第1希望: string;
+        第2希望: string;
+        第3希望: string;
+    }
+    // 'アクセスURL': string[]; 
     'MailGates_IPアクセス制御': string;
+    'サポート窓口担当者': {
+        会社名: string;
+        担当者名: string;
+        メールアドレス: string;
+        電話番号: string;
+    }[];
     }

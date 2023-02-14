@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { Input, Pulldown, Radio, Checkbox, MultiText } from './Elements';
+import { Input, Pulldown, Radio, Checkbox, MultiText, SupportArrays } from './Elements';
 import common from './common.json';
 import React from 'react';
 import Progress from './Progress';
@@ -12,15 +12,32 @@ const today: Date = new Date();
 const days_later: Date = new Date(today.setDate(today.getDate() + 4)); 
 const s_days_later:string = days_later.toISOString().slice(0,10)
 
+
 export default function Page1() {
     const methods = useFormContext<IFormValues>();
-    const { register, formState: { errors }, watch } = methods;
+    const { register, formState: { errors }, watch, control } = methods;
     const watchIsAuthType = watch("ユーザー認証方式");
-
     return (
         <>
+
+            {/* <Group>
+                <GroupLabel>アクセスURL</GroupLabel>
+                <Input 
+                    grouplabel='アクセスURL'
+                    label='アクセスURL_第1希望'
+                    register={register} 
+                    type="text" 
+                    required={true} 
+                    errors={errors} 
+                    pattern={/^[a-z][a-z-]*[a-z]$/}
+                    errmsg='2文字以上の半角英数小文字またはハイフンで指定してください。先頭と末尾にハイフンは利用できません。'
+                />
+                <Input grouplabel='アクセスURL' label='アクセスURL_第2希望' register={register} type="text" required={false} errors={errors} />
+                <Input grouplabel='アクセスURL' label='アクセスURL_第3希望' register={register} type="text" required={false} errors={errors} />
+            </Group>
+            <Button value='次へ' isBack={false} /> */}
             <Progress page={1} />            
-            <Input label='依頼事項' register={register} type="text" required={false} errors={errors} disabled={false} />
+            <Input label='依頼事項' register={register} type="text" required={true} errors={errors} disabled={false} />
             <Input 
                 label='開通希望日' 
                 register={register} 
@@ -32,6 +49,13 @@ export default function Page1() {
             <Input label='ご契約社名' register={register} type="text" required={false} errors={errors} />
             <Input label='ドメイン' register={register} type="text" required={false} errors={errors} />
             <Pulldown label='ご契約サービス' register={register} choices={service_list} required={false} disabled={true} />
+            {/* <AmountInput 
+                label='ご契約アカウント数' 
+                register={register}        
+                required={false} 
+                errors={errors}
+            
+            /> */}
             <Input 
                 label='ご契約アカウント数' 
                 register={register} 
@@ -81,6 +105,7 @@ export default function Page1() {
             <Input label='中継許可サーバーIPアドレス' register={register} type="text" required={false} errors={errors} />
             <Input label='中継先サーバーIPアドレス' register={register} type="text" required={false} errors={errors} />
             <Input label='中継先サーバーFQDN' register={register} type="text" required={false} errors={errors} />
+            
             <Input label='認証_サーバー' register={register} type="text" required={false} errors={errors} />
             <Input label='認証_ポート番号' register={register} type="number" required={false} errors={errors} />
             <Radio label='POP認証時にメールアドレス全体で認証する' register={register} choices={['はい', 'いいえ']} required={false}　/>
@@ -97,9 +122,8 @@ export default function Page1() {
                 disabled={false}
                 required={false}
             />
-
             <Input 
-                label='アクセスURL1（第1希望）' 
+                label='アクセスURL_第1希望'
                 register={register} 
                 type="text" 
                 required={true} 
@@ -107,10 +131,11 @@ export default function Page1() {
                 pattern={/^[a-z][a-z-]*[a-z]$/}
                 errmsg='2文字以上の半角英数小文字またはハイフンで指定してください。先頭と末尾にハイフンは利用できません。'
             />
-            <Input label='アクセスURL1（第2希望）' register={register} type="text" required={false} errors={errors} />
-            <Input label='アクセスURL1（第3希望）' register={register} type="text" required={false} errors={errors} />
+            <Input label='アクセスURL_第2希望' register={register} type="text" required={false} errors={errors} />
+            <Input label='アクセスURL_第3希望' register={register} type="text" required={false} errors={errors} />
             
             <MultiText label='MailGates_IPアクセス制御' register={register} required={false} errors={errors} />
+            <SupportArrays label='サポート窓口担当者' sublabel='担当者' register={register} required={false} errors={errors} />
             <Button value='次へ' isBack={false} />            
         </>
     )

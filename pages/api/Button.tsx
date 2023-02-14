@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import common from './common.json';
 
 const ButtonArea = styled.div<{ isBack: boolean }>`
-    margin-top: 24px;
-    margin-bottom: 36px;
+    margin: 36px 0;
     display: flex;
     justify-content: center;
 

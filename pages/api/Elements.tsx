@@ -6,8 +6,12 @@ import { IFormValues } from './IFormValues';
 import ToolTip from './ToolTip'
 
 type InputProps = {
+    //grouplabel: string;
     label: Path<IFormValues>;
+    //label: string;
+    sublabel?: string;
     register: UseFormRegister<IFormValues>;
+    //control: Control;
     type?: string;
     required: boolean;
     errors?: object;
@@ -16,6 +20,7 @@ type InputProps = {
     min?: string;
     pattern?: RegExp;
     errmsg?: string;
+    sublabels?: string[];
 }
 
 
@@ -31,10 +36,7 @@ const InputArea = styled.div<{ required: boolean }>`
         background-color: ${common.Color.input_bg};
         border-radius: 4px;
         padding: 10px 12px;
-        margin: 4px 0;
-    }
-    label {
-        font-weight: bold;
+        margin-bottom: 8px;
     }
     textarea {
         line-height: 20px;
@@ -133,13 +135,46 @@ const InputArea = styled.div<{ required: boolean }>`
     input[type='radio']:disabled, input[type='checkbox']:disabled {
         background-color: ${common.Color.gray};
     }
+
+
+    //SupportArray
+    input::placeholder {
+        color: ${common.Color.gray3};
+    }
+    .array_field_button {
+        text-align: right;
+    }
+`
+const ItemName = styled.div`
+    p {
+        font-weight: bold;
+        display: inline-block;
+    }
+    margin-bottom: 4px;
+    span {
+        font-weight: normal;
+    }
+`
+
+const Button = styled.button<{ index: number, action: string }>`
+    font-size: 0.8rem;
+    color: ${common.Color.text_w};
+    padding: 4px 8px;
+    text-align: center;
+    margin-left: 8px;
+    cursor: pointer;
+    background-color: ${props => props.action == 'append' ? common.Color.main: common.Color.gray3};
+    display: ${props => (props.index == 0 && props.action == 'delete') || (props.index == 4 && props.action == 'append') || props.disabled ? 'none': 'inline-block'};
 `
 
 export function Pulldown({label, register, choices, required, disabled}:InputProps) {
     return (
         <InputArea required={required}>
-            <label>{label} <span className="required">*</span></label>
-            <ToolTip label={label}/>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required">*</span>
+                <ToolTip label={label}/>
+            </ItemName>
             { choices !== undefined ?
             <select {...register(label)} disabled={disabled}>
                 {choices.map((item, index) => <option key={index} value={item}>{item}</option>)}
@@ -152,8 +187,11 @@ export function Pulldown({label, register, choices, required, disabled}:InputPro
 export function Radio({label, register, required, choices }:InputProps) {
     return (
         <InputArea required={required}>
-            <label>{label} <span className="required">*</span></label>
-            <ToolTip label={label}/>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required">*</span>
+                <ToolTip label={label}/>
+            </ItemName>
             { choices !== undefined ?
                 <div className='radio-choices' >{choices.map((item, index) => 
                 <label htmlFor={`${label}_${index}`} key={index}>
@@ -170,8 +208,11 @@ export function Radio({label, register, required, choices }:InputProps) {
 export function Checkbox({label, register, required, choices, disabled }:InputProps) {
     return (
         <InputArea required={required}>
-            <label>{label} <span className="required">*</span></label>
-            <ToolTip label={label}/>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required">*</span>
+                <ToolTip label={label}/>
+            </ItemName>
             { choices !== undefined ?
                 <div className='checkbox-choices' >
                     {choices.map((item, index) => 
@@ -195,8 +236,11 @@ export function Checkbox({label, register, required, choices, disabled }:InputPr
 export function MultiText({label, register, required, errors, disabled}:InputProps) {
     return (
         <InputArea required={required}>
-            <label>{label} <span className="required">*</span></label>
-            <ToolTip label={label}/>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required">*</span>
+                <ToolTip label={label}/>
+            </ItemName>
             <textarea
                 {...register(label, { 
                     required: {value: required, message: "必須項目です"},
@@ -213,10 +257,14 @@ export function MultiText({label, register, required, errors, disabled}:InputPro
 }
 
 export function Input({label, register, type, min, required, errors, disabled, pattern, errmsg }:InputProps) {
+    //const register_label:Path<IFormValues> = `${grouplabel}_${label}`
     return (
         <InputArea required={required}>
-            <label>{label} <span className="required">*</span></label>
-            <ToolTip label={label}/>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required"> *</span>
+                <ToolTip label={label}/>
+            </ItemName>
 
             { pattern !== undefined && errmsg !== undefined ? 
             <input
@@ -247,3 +295,110 @@ export function Input({label, register, type, min, required, errors, disabled, p
     );
 }
 
+
+export function AmountInput({label, register, min, required, errors, disabled }:InputProps) {
+    //const register_label:Path<IFormValues> = `${grouplabel}_${label}`
+    return (
+        <InputArea required={required}>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required"> *</span>
+                <ToolTip label={label}/>
+            </ItemName>
+            <input
+                type='number'
+                {...register(label, { 
+                    required: {value: required, message: "必須項目です"},
+                    pattern: {value:/^[0-9]+0$/, message: "10アカウント単位で指定してください"}
+                })}
+                disabled={disabled}
+                min={min}
+            />
+
+            <ErrorMessage
+                errors={errors}
+                name={label}
+                render={({ message } : {message: string }) => <span className="error" >{message}</span>}
+            />
+        </InputArea>
+    );
+}
+
+export function SupportArrays({label, sublabel, register, required, errors, disabled}:InputProps) {
+    const { fields, append, remove } = useFieldArray({
+        name: label,
+    });
+
+    return (
+        <InputArea required={required}>
+            <ItemName>
+                <p>{label}</p>
+                <span className="required">*</span>
+                <span>　※最大5名まで追加可能です</span>
+                <ToolTip label={label}/>
+            </ItemName>       
+
+            {fields.map((field, index) => (
+                <div key={field.id} className='array_field'>
+                    <label>{sublabel}{index+1}</label>
+                    <input
+                        placeholder='会社名'
+                        type='text'
+                        {...register(`サポート窓口担当者.${index}.会社名` as const, { 
+                            required: {value: required, message: "必須項目です"},
+                        })} 
+                    />
+                    <input
+                        placeholder='担当者名'
+                        type='text'
+                        {...register(`サポート窓口担当者.${index}.担当者名` as const, { 
+                            required: {value: required, message: "必須項目です"},
+                        })} 
+                    />
+                    <input
+                        placeholder='メールアドレス'
+                        type='text'
+                        {...register(`サポート窓口担当者.${index}.メールアドレス` as const, { 
+                            required: {value: required, message: "必須項目です"},
+                        })} 
+                    />
+                    <input
+                        placeholder='電話番号'
+                        type='text'
+                        {...register(`サポート窓口担当者.${index}.電話番号` as const, { 
+                            required: {value: required, message: "必須項目です"},
+                        })} 
+                    />
+                    <div className="array_field_button">
+                        <Button 
+                            index={index}
+                            action='delete'
+                            type="button"
+                            onClick={() => remove(index)}>
+                            削除
+                        </Button>                        
+                        <Button
+                            index={index}
+                            action='append'
+                            type="button"
+                            onClick={() =>
+                                append({
+                                    会社名: "",
+                                    担当者名: "",
+                                    メールアドレス: "",
+                                    電話番号: ""
+                                })
+                        }>
+                            追加
+                        </Button>
+                    </div>
+                </div>                                          
+            ))}
+            <ErrorMessage
+                errors={errors}
+                name={label}
+                render={({ message } : {message: string }) => <span className="error" >{message}</span>}
+            />
+        </InputArea>
+    );
+}

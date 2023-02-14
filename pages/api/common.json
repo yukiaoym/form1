@@ -8,7 +8,8 @@
         "main": "#007e66",
         "point": "#f25a86",
         "gray": "#d3d3d3",
-        "gray2": "#B7B7B7"
+        "gray2": "#B7B7B7",
+        "gray3": "#808080"
     },
     "ProductColor": {
         "CyberMail": "#82BB48",
