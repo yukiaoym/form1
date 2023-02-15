@@ -13,14 +13,13 @@ const ButtonArea = styled.div<{ isBack: boolean }>`
         text-align: center;
         cursor: pointer;
         margin: 0 12px;
+        color: ${common.Color.text_w};
     }
     input[type='submit'] {
-        color: ${common.Color.text_w};
         background-color: ${common.Color.main};
     }
-    button {
-        color: ${common.Color.text};
-        background-color: ${common.Color.gray};
+    button {        
+        background-color: ${common.Color.gray3};
         display: ${(props) => props.isBack ? 'inline-block' : 'none'};
     }
 `

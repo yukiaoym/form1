@@ -4,7 +4,6 @@ import React from 'react';
 import Button from "./Button";
 import styled from 'styled-components';
 import common from './common.json';
-import { Vast_Shadow } from "@next/font/google";
 
 const Table = styled.table`
     width: 100%;
@@ -32,19 +31,17 @@ const SubTitle = styled.h2`
 
 
 
+
+
 export default function Confirm({ onBack }: {onBack:() => void}) {
     const methods = useFormContext<IFormValues>();
     const { getValues } = methods;
     const values = getValues();
 
-    // var names = []
-    // for (const key in values) {
-
-    //     if (typeof values[key] == string) {
-
-    //     }
-    //     names.push(key)
-    // }
+    for (const key in values) {
+        values[key]
+        
+    }
 
 
 

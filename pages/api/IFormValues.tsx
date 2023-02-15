@@ -38,9 +38,9 @@ export type IFormValues = {
     'POP認証時にメールアドレス全体で認証する': string;
     'DKIM認証を利用する': string;
     'MGΣプラン': string[];
-    'アクセスURL_第1希望':string;
-    'アクセスURL_第2希望': string;
-    'アクセスURL_第3希望': string;
+    '第1希望':string;
+    '第2希望': string;
+    '第3希望': string;
     'アクセスURL': {
         第1希望: string;
         第2希望: string;
@@ -53,5 +53,9 @@ export type IFormValues = {
         担当者名: string;
         メールアドレス: string;
         電話番号: string;
+    }[];
+    'MXレコード切替予定日': string;
+    '管理者メールアドレス': {
+        メールアドレス: string;
     }[];
     }
