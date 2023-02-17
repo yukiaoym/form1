@@ -10,17 +10,9 @@ import Result from "./Result";
 export default function Form() {
     const [pageNumber, setPageNumber] = useState<number>(1);
     const [responseCode, setResponseCode] = useState<number>(200)
-
    
     const methods = useForm({
-        mode: "onChange",
-        defaultValues: {
-            'O365・G_suite切替': '切替前',
-            'POP認証時にメールアドレス全体で認証する': 'はい',
-            'DKIM認証を利用する': '利用しない',
-            '管理者メールアドレス': [{ メールアドレス: '' }],
-            'サポート窓口担当者': [{ 会社名: "", 担当者名: "", メールアドレス: '', 電話番号: '' }],
-        }
+        mode: "onChange"
     })
     
     const handleSubmit = methods.handleSubmit((data) => {

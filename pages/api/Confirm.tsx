@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { IFormValues } from "./IFormValues";
 import React from 'react';
-import Button from "./Button";
+import Button from "./parts/Button";
 import styled from 'styled-components';
 import common from './common.json';
 
@@ -30,45 +30,38 @@ const SubTitle = styled.h2`
 `
 
 
-
-
-
 export default function Confirm({ onBack }: {onBack:() => void}) {
     const methods = useFormContext<IFormValues>();
     const { getValues } = methods;
-    const values = getValues();
+    const values:{[key:string]: any} = getValues();
 
-    for (const key in values) {
-        values[key]
+    const names = []
+    for ( const key in values ) {
+        names.push(key)
+        if (typeof values[key] != 'string' &&  values[key] != 'number') {
+            console.log(values[key])
+        }
         
     }
-
-
+    
 
     return (
         <>
             <SubTitle>この内容で送信してもよろしいですか？</SubTitle>
-            {/* <Table>
-                <tbody>
-                    {names.map((item, index) => 
-                        { if(item !== 'SAML IdPメタデータ') {
-                            return (
-                                <tr key={index}>
-                                    <td>{item}</td>
-                                    <td>{values[item]}</td>
-                                </tr>
-                                )
-                        } else {
-                            return (
-                                <tr key={index}>
-                                    <td>{item}</td>
-                                    <td>{values[item][0].name}</td>
-                                </tr>                        
-                            )
-                        }}
-                    )}
+            <Table>
+                <tbody>                        
+                    {names.map((item, index) =>
+                    <tr key={index}>
+                        <td className={item}>{item}</td>
+                        { typeof values[item] == 'string' || values[item] == 'number' ?
+                        <td>{values[item]}</td>
+                        :
+                        <td>{values[item][0].names}</td>
+                        }
+                    </tr>
+                    )}                     
                 </tbody>
-            </Table> */}
+            </Table>
             <Button value='送信' onBack={onBack} isBack={true} />
         </>
     )

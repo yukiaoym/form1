@@ -33,6 +33,14 @@
         "CYBERMAIL Σ ST",
         "EMERGENCY MAIL"
     ],
+    "AuthList": [
+        "認証用_CyberMail",
+        "SAML",
+        "Microsoft 365 (OAuth 2.0)",
+        "Google Workspace (OAuth 2.0)",
+        "POP3/SMTP",
+        "LDAP/Active Directory"  
+    ],
     "SAMLIdpList": [
         "-- 選択してください --",
         "ADFS",
@@ -43,5 +51,11 @@
         "Google Workspace",
         "Azure AD",
         "Extic"
+    ],
+    "MailGatesPlan": [
+        "入口対策（基本）",
+        "入口対策（OP_サンドボックス）",
+        "出口対策（暗号化＆分離）",
+        "出口対策（誤送信、審査、暗号化＆分離）"
     ]
 }

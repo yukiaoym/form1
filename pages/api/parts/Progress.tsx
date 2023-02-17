@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import common from './common.json';
+import common from '../common.json';
 
 type PageProps = {
     page: number;
