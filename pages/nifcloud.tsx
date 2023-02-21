@@ -1,6 +1,10 @@
 import Form from './api/Form';
 import styled from 'styled-components';
 import common from './api/common.json';
+import CyberLogo from '../public/CyberSolutions.png';
+
+const SUB_DIRECTORY = "/form";
+const isProd = process.env.NODE_ENV == "production"
 
 const Background = styled.div`
     background-color: ${common.Color.bg2};
@@ -47,7 +51,7 @@ export default function App() {
     return (
         <Background>
             <Main>  
-                <img src='/CyberSolutions.png' height={36} />
+                <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" }  height={36} />
                 <Contents>
                     <Title>環境作成フォーム</Title>
                     <Explanation>

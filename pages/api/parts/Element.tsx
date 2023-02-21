@@ -32,6 +32,7 @@ export function Input ({label, register, sub, type, min, required, errors, disab
             <SectionTitle label={label} required={required} sub={sub} />
             { pattern !== undefined && errmsg !== undefined ? 
             <input
+                autoComplete='off'
                 type={type}
                 min={min}
                 disabled={disabled}
@@ -43,6 +44,7 @@ export function Input ({label, register, sub, type, min, required, errors, disab
             />
             :
             <input
+                autoComplete='off'
                 type={type}
                 min={min}
                 disabled={disabled}
@@ -71,6 +73,7 @@ export function Select ({label, register, list, disabled, sub }:InputProps) {
             <select 
                 {...register(label)} 
                 disabled={disabled}
+                autoComplete='off'
             >
                 {list.map((item, index) => <option key={index} value={item}>{item}</option>)}
             </select>
@@ -89,7 +92,13 @@ export function Radio ({label, register, list, sub }:InputProps) {
             <div className='radio' >
                 {list.map((item, index) => 
                 <label htmlFor={`${label}_${index}`} key={index}>
-                    <input type='radio' {...register(label)} value={item} id={`${label}_${index}`} />
+                    <input 
+                        autoComplete='off'
+                        type='radio' 
+                        {...register(label)} 
+                        value={item} 
+                        id={`${label}_${index}`} 
+                    />
                     <span>{item}</span>
                 </label>
                 )}
@@ -98,7 +107,7 @@ export function Radio ({label, register, list, sub }:InputProps) {
     )
 }
 
-export function Checkbox({ label, register, list, disabled, sub }:InputProps) {
+export function Checkbox({ label, register, list, disabled, sub, errors }:InputProps) {
     if (list === undefined) {
         list = []
     }
@@ -108,15 +117,28 @@ export function Checkbox({ label, register, list, disabled, sub }:InputProps) {
         <div className='checkbox' >
             {list.map((item, index) => 
                 <label key={index} htmlFor={`checkbox-${index}`} >
-                    <input 
-                        type='checkbox' 
-                        {...register(label)} 
+                    <input
+                        autoComplete='off'
+                        type='checkbox'
+                        {...register(label,{
+                            validate: {
+                                atLeastOneRequired: (value:any) =>
+                                  (value && value.length >= 1) ||
+                                  "1つ以上選択してください",
+                              },
+                        })}
+                        defaultChecked={false}
                         value={item} 
                         id={`checkbox-${index}`} 
                         disabled={disabled} />
                     <span>{item}</span>
                 </label>
             )}
+            <ErrorMessage
+                errors={errors}
+                name={label}
+                render={({ message } : {message: string }) => <span className="error" >{message}</span>}
+            />
         </div>
         </>
     );
@@ -130,6 +152,7 @@ export function MultiText({label, register, required, errors, disabled, sub }:In
         <>
             <SectionTitle label={label} required={required} sub={sub} />
             <textarea
+                autoComplete='off'
                 {...register(label, { 
                     required: {value: required, message: "必須項目です"},
                 })}

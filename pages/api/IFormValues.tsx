@@ -28,7 +28,7 @@ export type IFormValues = {
     "認証_ポート番号": string;
     "POP認証時にメールアドレス全体で認証する": string;
     "オプション_DKIM": string;
-    "MGΣ_プラン": string[];
+    "MGΣ_プラン": string | string[];
     "MG_希望アクセスURL1": string;
     "MG_希望アクセスURL2": string;
     "MG_希望アクセスURL3": string;

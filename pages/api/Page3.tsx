@@ -25,7 +25,7 @@ export default function Page3() {
 
             <Section>
                 <SectionTitle label='サポート窓口情報' required={false} sub={false} />
-                <Input label='サポート窓口_担当者名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='サポート窓口_会社名' register={register} required={false} errors={errors} sub={true} />
                 <Input label='サポート窓口_担当者名' register={register} required={false} errors={errors} sub={true} />
                 <Input label='サポート窓口_メールアドレス' register={register} required={false} errors={errors} sub={true} />
                 <Input label='サポート窓口_TEL' register={register} required={false} errors={errors} sub={true} />

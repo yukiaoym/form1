@@ -99,7 +99,7 @@ export default function Page1() {
                 <Radio label='POP認証時にメールアドレス全体で認証する' register={register} list={['はい', 'いいえ']} sub={true} />
             </Section>
             <Section>
-                <Checkbox label='MGΣ_プラン' register={register} list={mg_plan} sub={false} />
+                <Checkbox label='MGΣ_プラン' register={register} list={mg_plan} sub={false} errors={errors} />
             </Section>
             <Section>
                 <SectionTitle label='アクセスURL' required={false} sub={false} />

@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 import common from '../common.json';
 import React, { useState } from 'react';
-import NamesDict from '../NamesDict.json';
-
-type NamesDictProps = {
-    [name: string]: {
-        pages: string,
-        confirm: string,
-        tooltip: string
-    }
-}
-const names_dict:NamesDictProps = NamesDict.Names
 
 const ToolTipArea = styled.div<{ show: boolean }>`
     display: inline-block;
@@ -45,13 +35,15 @@ type labelProps = {
 }
 export default function ToolTip({label}:labelProps) {
     const [show, setShow] = useState(false)
+    const SUB_DIRECTORY = "/form";
+    const isProd = process.env.NODE_ENV == "production"
 
     return (
         <>
             { label !== "" ?
                 <ToolTipArea show={show}>
                     <img 
-                        src="/question.png" alt="help" 
+                        src={ isProd ? `${SUB_DIRECTORY}/question.png` : "/question.png" } alt="help" 
                         onMouseEnter={() => setShow(true)} 
                         onMouseLeave={() => setShow(false)}
                     />

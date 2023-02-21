@@ -2,11 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
 }
+const SUB_DIRECTORY = "/form";
+const isProd = process.env.NODE_ENV == "production"
 
 module.exports = {
   nextConfig,
+  basePath: isProd ? SUB_DIRECTORY : "",
   compiler: {
-    // ssr and displayName are configured by default
     styledComponents: true,
   },
 }
