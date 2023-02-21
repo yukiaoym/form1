@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import common from './api/common.json';
 import CyberLogo from '../public/CyberSolutions.png';
 
-const SUB_DIRECTORY = "/form";
+//const SUB_DIRECTORY = "/form";
+const SUB_DIRECTORY = "";
 const isProd = process.env.NODE_ENV == "production"
 
 const Background = styled.div`
