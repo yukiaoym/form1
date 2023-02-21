@@ -1,0 +1,304 @@
+{    
+    "Names": {
+        "依頼事項": {
+            "pages": "依頼事項",
+            "confirm": "依頼事項",
+            "tooltip": ""
+        },
+        "開通希望日": {
+            "pages": "開通希望日",
+            "confirm": "開通希望日",
+            "tooltip": "最短でお申込み日より3営業日以内に環境提供致します。\n（土日祝日を除く）"
+        },
+        "ご契約社名": {
+            "pages": "ご契約社名",
+            "confirm": "ご契約社名",
+            "tooltip": ""
+        },
+        "ドメイン": {
+            "pages": "ドメイン",
+            "confirm": "ドメイン",
+            "tooltip": ""
+        },
+        "ご契約サービス": {
+            "pages": "ご契約サービス",
+            "confirm": "ご契約サービス",
+            "tooltip": ""
+        },
+        "ご契約アカウント数": {
+            "pages": "ご契約アカウント数",
+            "confirm": "ご契約アカウント数",
+            "tooltip": ""
+        },
+        "ユーザー認証方式": {
+            "pages": "ユーザー認証方式",
+            "confirm": "ユーザー認証方式",
+            "tooltip": "CYBERMAILΣへログインする際の認証方式となります。\nデフォルト設定はCYBERMAILとなります。\nLDAP認証またはSAML認証をご利用の場合は、ユーザ認証方式を変更してください。"
+        },
+        "SAML認証": {
+            "pages": "SAML認証",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "SAML認証_担当者名": {
+            "pages": "担当者名",
+            "confirm": "SAML認証_担当者名",
+            "tooltip": "SAML認証の技術的なご担当者様の氏名をご記入下さい。"
+        },
+        "SAML認証_担当者メールアドレス": {
+            "pages": "担当者メールアドレス",
+            "confirm": "SAML認証_担当者メールアドレス",
+            "tooltip": "SAML認証の技術的なご担当者様のメールアドレスをご記入下さい。"
+        },
+        "SAML認証_IdPサービス名": {
+            "pages": "IdPサービス名",
+            "confirm": "SAML認証_IdPサービス名",
+            "tooltip": "ご利用のIdPサービスを選択して下さい。"
+        },
+        "SAML認証_メタデータ": {
+            "pages": "IdPメタデータ",
+            "confirm": "SAML認証_IdPメタデータ",
+            "tooltip": "ご利用のIdPサービスのメタデータを添付して下さい。"
+        },
+        "LDAP認証": {
+            "pages": "LDAP認証",
+            "confirm": "",
+            "tooltip": ""            
+        },        
+        "LDAP認証_サーバー": {
+            "pages": "サーバーFQDNまたはIPアドレス",
+            "confirm": "LDAP認証_サーバーFQDNまたはIPアドレス",
+            "tooltip": "お客様環境のLDAP/Active DirectoryサーバーのグローバルIPアドレス"
+        },
+        "LDAP認証_ポート番号": {
+            "pages": "ポート番号",
+            "confirm": "LDAP認証_ポート番号",
+            "tooltip": ""
+        },
+        "LDAP認証_BaseDN": {
+            "pages": "BaseDN",
+            "confirm": "LDAP認証_BaseDN",
+            "tooltip": "お客様環境のLDAP/Active Directoryサーバーの検索起点となるDN"
+        },
+        "LDAP認証_文字コード": {
+            "pages": "文字コード",
+            "confirm": "LDAP認証_文字コード",
+            "tooltip": "お客様環境のLDAP/Active Directoryサーバーの文字コード"
+        },
+        "LDAP認証_ログインアカウント": {
+            "pages": "ログインアカウント",
+            "confirm": "LDAP認証_ログインアカウント",
+            "tooltip": "お客様環境のLDAP/Active Directoryサーバーの検索権限を持っているアカウント"
+        },
+        "LDAP認証_ログインパスワード": {
+            "pages": "ログインパスワード",
+            "confirm": "LDAP認証_ログインパスワード",
+            "tooltip": "お客様環境のLDAP/Active Directoryサーバーの検索権限を持っているアカウントのパスワード"
+        },
+        "LDAP認証_フィルタ": {
+            "pages": "フィルタ",
+            "confirm": "LDAP認証_フィルタ",
+            "tooltip": "お客様環境のLDAP/Active Directoryサーバーの検索で使用するフィルタ"
+        },
+        "MXレコード切替予定日": {
+            "pages": "MXレコード切替予定日",
+            "confirm": "MXレコード切替予定日",
+            "tooltip": ""
+        },
+        "O365・G_suite切替": {
+            "pages": "Microsoft 365 / Google Workspace 切替状況",
+            "confirm": "Microsoft 365 / Google Workspace 切替状況",
+            "tooltip": ""
+        },
+        "MXレコード": {
+            "pages": "MXレコード",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "切替前のMXレコード": {
+            "pages": "切替前",
+            "confirm": "MXレコード_切替前",
+            "tooltip": ""
+        },
+        "切替後のMXレコード": {
+            "pages": "切替後",
+            "confirm": "MXレコード_切替後",
+            "tooltip": ""
+        },
+        "連携サーバー情報": {
+            "pages": "連携サーバー情報",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "中継許可サーバーIPアドレス": {
+            "pages": "中継許可サーバー IPアドレス",
+            "confirm": "中継許可サーバー IPアドレス",
+            "tooltip": ""
+        },
+        "中継先サーバーIPアドレス": {
+            "pages": "中継先サーバー IPアドレス",
+            "confirm": "中継先サーバー IPアドレス",
+            "tooltip": ""
+        },
+        "中継先サーバーFQDN": {
+            "pages": "中継先サーバー FQDN",
+            "confirm": "中継先サーバー FQDN",
+            "tooltip": ""
+        },
+        "認証_サーバー": {
+            "pages": "認証サーバー FQDN",
+            "confirm": "認証サーバー FQDN",
+            "tooltip": ""
+        },
+        "認証_ポート番号": {
+            "pages": "認証サーバー ポート番号",
+            "confirm": "認証サーバー ポート番号",
+            "tooltip": ""
+        },
+        "POP認証時にメールアドレス全体で認証する": {
+            "pages": "POP認証時にメールアドレス全体で認証する",
+            "confirm": "POP認証時にメールアドレス全体で認証する",
+            "tooltip": ""
+        },
+        "オプション_DKIM": {
+            "pages": "DKIM認証を利用する",
+            "confirm": "DKIM認証を利用する",
+            "tooltip": "DKIM認証とは、送信者のなりすましやメールの改ざんを防ぐための仕組みです。\n送信メールにDKIMヘッダを付与する場合は「利用する」を選択して下さい。\n環境提供時にお客様ドメインのDKIMレコードへの登録していただく公開鍵のデータを提供いたします。"
+        },
+        "MGΣ_プラン": {
+            "pages": "ご契約プラン",
+            "confirm": "ご契約プラン",
+            "tooltip": ""
+        },
+        "アクセスURL": {
+            "pages": "アクセスURL",
+            "confirm": "",
+            "tooltip": "本サービスにアクセスするURLに設定されます。英数半角小文字とハイフンのみ利用可。\n例）https://***.cybermail.jpの「***」を指します。"            
+        },
+        "MG_希望アクセスURL1": {
+            "pages": "第1希望",
+            "confirm": "アクセスURL_第1希望",
+            "tooltip": ""
+        },
+        "MG_希望アクセスURL2": {
+            "pages": "第2希望",
+            "confirm": "アクセスURL_第2希望",
+            "tooltip": ""
+        },
+        "MG_希望アクセスURL3": {
+            "pages": "第3希望",
+            "confirm": "アクセスURL_第3希望",
+            "tooltip": ""
+        },
+        "MailGates_IPアクセス制御": {
+            "pages": "ログインIP許可リスト",
+            "confirm": "ログインIP許可リスト",
+            "tooltip": "情報漏えい対策・アンチウイルス・アンチスパム管理画面へのアクセス制御をご利用の場合はご記入ください。\n制御が不要な場合は空欄にしてください。\n※全ユーザが対象となります。"
+        },
+        "管理者メールアドレス": {
+            "pages": "管理者メールアドレス",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "管理者メールアドレス1": {
+            "pages": "管理者メールアドレス1",
+            "confirm": "管理者メールアドレス1",
+            "tooltip": ""
+        },
+        "管理者メールアドレス2": {
+            "pages": "管理者メールアドレス2",
+            "confirm": "管理者メールアドレス2",
+            "tooltip": ""
+        },
+        "管理者メールアドレス3": {
+            "pages": "管理者メールアドレス3",
+            "confirm": "管理者メールアドレス3",
+            "tooltip": ""
+        },
+        "管理者メールアドレス4": {
+            "pages": "管理者メールアドレス4",
+            "confirm": "管理者メールアドレス4",
+            "tooltip": ""
+        },
+        "管理者メールアドレス5": {
+            "pages": "管理者メールアドレス5",
+            "confirm": "管理者メールアドレス5",
+            "tooltip": ""
+        },
+        "パートナー情報": {
+            "pages": "管理者メールアドレス",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "パートナー_会社名": {
+            "pages": "会社名",
+            "confirm": "パートナー情報_会社名",
+            "tooltip": ""
+        },
+        "パートナー_部署": {
+            "pages": "部署",
+            "confirm": "パートナー情報_部署",
+            "tooltip": ""
+        },
+        "パートナー_担当者": {
+            "pages": "担当者名",
+            "confirm": "パートナー情報_担当者名",
+            "tooltip": ""
+        },
+        "パートナー_メールアドレス": {
+            "pages": "メールアドレス",
+            "confirm": "パートナー情報_メールアドレス",
+            "tooltip": ""
+        },
+        "パートナー_TEL": {
+            "pages": "電話番号",
+            "confirm": "パートナー情報_電話番号",
+            "tooltip": ""
+        },
+        "サポート窓口情報": {
+            "pages": "管理者メールアドレス",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "サポート窓口_会社名": {
+            "pages": "会社名",
+            "confirm": "サポート窓口情報_会社名",
+            "tooltip": ""
+        },
+        "サポート窓口_担当者名": {
+            "pages": "担当者名",
+            "confirm": "サポート窓口情報_担当者名",
+            "tooltip": ""
+        },
+        "サポート窓口_メールアドレス": {
+            "pages": "メールアドレス",
+            "confirm": "サポート窓口情報_メールアドレス",
+            "tooltip": ""
+        },
+        "サポート窓口_TEL": {
+            "pages": "電話番号",
+            "confirm": "サポート窓口情報_電話番号",
+            "tooltip": ""
+        },
+        "開通通知先情報": {
+            "pages": "管理者メールアドレス",
+            "confirm": "",
+            "tooltip": ""            
+        },
+        "開通通知用_会社名": {
+            "pages": "会社名",
+            "confirm": "開通通知先情報_会社名",
+            "tooltip": ""
+        },
+        "開通通知用_担当者名": {
+            "pages": "担当者名",
+            "confirm": "開通通知先情報_担当者名",
+            "tooltip": ""
+        },
+        "開通通知用_TO宛先": {
+            "pages": "メールアドレス",
+            "confirm": "開通通知先情報_メールアドレス",
+            "tooltip": ""
+        }
+    }
+}

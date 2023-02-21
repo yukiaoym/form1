@@ -16,38 +16,26 @@ export default function Page3() {
             <Progress page={3} />
             <Section>
                 <SectionTitle label='パートナー情報' required={false} sub={false} />
-                <SectionTitle label='会社名' required={false} sub={true} />
-                <Input label='パートナー_会社名' register={register} required={false} errors={errors} />
-                <SectionTitle label='部署' required={false} sub={true} />
-                <Input label='パートナー_部署' register={register} required={false} errors={errors} />
-                <SectionTitle label='担当者名' required={false} sub={true} />
-                <Input label='パートナー_担当者名' register={register} required={false} errors={errors} />
-                <SectionTitle label='メールアドレス' required={false} sub={true} />
-                <Input label='パートナー_メールアドレス' register={register} required={false} errors={errors} />
-                <SectionTitle label='電話番号' required={false} sub={true} />
-                <Input label='パートナー_電話番号' register={register} required={false} errors={errors} />
+                <Input label='パートナー_会社名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='パートナー_部署' register={register} required={false} errors={errors} sub={true} />
+                <Input label='パートナー_担当者' register={register} required={false} errors={errors} sub={true} />
+                <Input label='パートナー_メールアドレス' register={register} required={false} errors={errors} sub={true} />
+                <Input label='パートナー_TEL' register={register} required={false} errors={errors} sub={true} />
             </Section>
 
             <Section>
                 <SectionTitle label='サポート窓口情報' required={false} sub={false} />
-                <SectionTitle label='会社名' required={false} sub={true} />
-                <Input label='サポート窓口_会社名' register={register} required={false} errors={errors} />
-                <SectionTitle label='担当者名' required={false} sub={true} />
-                <Input label='サポート窓口_担当者名' register={register} required={false} errors={errors} />
-                <SectionTitle label='メールアドレス' required={false} sub={true} />
-                <Input label='サポート窓口_メールアドレス' register={register} required={false} errors={errors} />
-                <SectionTitle label='電話番号' required={false} sub={true} />
-                <Input label='サポート窓口_電話番号' register={register} required={false} errors={errors} />
+                <Input label='サポート窓口_担当者名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='サポート窓口_担当者名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='サポート窓口_メールアドレス' register={register} required={false} errors={errors} sub={true} />
+                <Input label='サポート窓口_TEL' register={register} required={false} errors={errors} sub={true} />
             </Section>
 
             <Section>
                 <SectionTitle label='開通通知先情報' required={false} sub={false} />
-                <SectionTitle label='会社名' required={false} sub={true} />
-                <Input label='開通通知用_会社名' register={register} required={false} errors={errors} />
-                <SectionTitle label='担当者名' required={false} sub={true} />
-                <Input label='開通通知用_担当者名' register={register} required={false} errors={errors} />
-                <SectionTitle label='メールアドレス' required={false} sub={true} />
-                <Input label='開通通知用_TO宛先' register={register} required={false} errors={errors} />
+                <Input label='開通通知用_会社名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='開通通知用_担当者名' register={register} required={false} errors={errors} sub={true} />
+                <Input label='開通通知用_TO宛先' register={register} required={false} errors={errors} sub={true} />
             </Section>
             <Button value='次へ' isBack={false} />
         </>

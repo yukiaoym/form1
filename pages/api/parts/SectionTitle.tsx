@@ -1,5 +1,15 @@
 import styled from "styled-components"
 import ToolTip from "./ToolTip";
+import NamesDict from '../NamesDict.json';
+
+type NamesDictProps = {
+    [name: string]: {
+        pages: string,
+        confirm: string,
+        tooltip: string
+    }
+}
+const names_dict:NamesDictProps = NamesDict.Names
 
 const SectionTitleArea = styled.div<{required:boolean}>`
     margin-bottom: 4px;
@@ -20,16 +30,19 @@ const SectionTitleArea = styled.div<{required:boolean}>`
 `
 type SectionTitleProps = {
     label: string;
-    required: boolean;
+    required?: boolean;
     sub: boolean;
 }
 
 export default function SectionTitle({label, required, sub}:SectionTitleProps) {
+    if (required == undefined) {
+        required = false
+    }
     return (
         <SectionTitleArea required={required} >
-            { sub ? <h4>{label}</h4> : <h3>{label}</h3> }
+            { sub ? <h4>{names_dict[label]["pages"]}</h4> : <h3>{names_dict[label]["pages"]}</h3> }
             <span className="required"> *</span>
-            <ToolTip label={label} />
+            <ToolTip label={names_dict[label]["tooltip"]} />
         </SectionTitleArea>
     )
 }
