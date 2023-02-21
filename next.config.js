@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV == "production"
 
 module.exports = {
   nextConfig,
-  basePath: isProd ? SUB_DIRECTORY : "",
+  //basePath: isProd ? SUB_DIRECTORY : "",
   compiler: {
     styledComponents: true,
   },

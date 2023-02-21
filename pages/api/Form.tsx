@@ -21,13 +21,13 @@ export default function Form() {
             scrollTo(0,0)
         }     
         if (pageNumber == 4) {
-            console.log(data)
-            SendAPI(data).then(result => {
-                setResponseCode(result)
-                setPageNumber(pageNumber => pageNumber + 1)
-            });
+            // console.log(data)
+            // SendAPI(data).then(result => {
+            //     setResponseCode(result)
+            //     setPageNumber(pageNumber => pageNumber + 1)
+            // });
             scrollTo(0,0)
-            //setPageNumber(pageNumber => pageNumber + 1)
+            setPageNumber(pageNumber => pageNumber + 1)
         } 
     });
 
