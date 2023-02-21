@@ -58,7 +58,7 @@ export default function Confirm({ onBack }: {onBack:() => void}) {
                     </>
                 )
                 rows.push(tds)
-            } else {
+            } else if ( values[key].length > 0 ) {
                 const tds = (
                     <>
                     <td>{names_dict[key]["confirm"]}</td>
@@ -66,6 +66,14 @@ export default function Confirm({ onBack }: {onBack:() => void}) {
                     </>
                 )
                 rows.push(tds)
+            } else {
+                const tds = (
+                    <>
+                    <td>{names_dict[key]["confirm"]}</td>
+                    <td></td>
+                    </>
+                )
+                rows.push(tds) 
             }
         }
     }
