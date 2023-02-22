@@ -18,6 +18,7 @@ type InputProps = {
     placeholder?: string;
     list?: string[];
     sub: boolean;
+    id?: string;
 }
 
 export function Input ({label, register, sub, type, min, required, errors, disabled, placeholder, pattern, errmsg }:InputProps) {
@@ -63,6 +64,19 @@ export function Input ({label, register, sub, type, min, required, errors, disab
     )
 }
 
+export function InputFile ({label, register, disabled, sub, id }:InputProps) {
+    return (
+        <>
+            <SectionTitle label={label} sub={sub} />
+            <input
+                id={id}
+                type='file'
+                {...register(label)}
+            />
+        </>
+    )
+}
+
 export function Select ({label, register, list, disabled, sub }:InputProps) {
     if (list === undefined) {
         list = []
@@ -82,17 +96,18 @@ export function Select ({label, register, list, disabled, sub }:InputProps) {
 }
 
 
-export function Radio ({label, register, list, sub }:InputProps) {
+export function Radio ({label, register, required, list, sub }:InputProps) {
     if (list === undefined) {
         list = []
     }
     return (
         <>
-            <SectionTitle label={label} sub={sub} />
+            <SectionTitle label={label} required={required} sub={sub} />
             <div className='radio' >
                 {list.map((item, index) => 
                 <label htmlFor={`${label}_${index}`} key={index}>
                     <input 
+                        required={required}
                         autoComplete='off'
                         type='radio' 
                         {...register(label)} 

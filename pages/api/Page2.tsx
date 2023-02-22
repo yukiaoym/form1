@@ -15,9 +15,6 @@ export default function Page2() {
         <>
             <Progress page={2} />
             <Section>
-                <Radio label='オプション_DKIM' register={register} list={['利用する', '利用しない']} errors={errors} sub={false} />
-            </Section>
-            <Section>
                 <MultiText label='MailGates_IPアクセス制御' register={register} errors={errors} sub={false} />
             </Section>
             <Section>

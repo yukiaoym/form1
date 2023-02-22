@@ -35,8 +35,8 @@ type labelProps = {
 }
 export default function ToolTip({label}:labelProps) {
     const [show, setShow] = useState(false)
-    //const SUB_DIRECTORY = "/form";
-    const SUB_DIRECTORY = "";
+    const SUB_DIRECTORY = "/form";
+    //const SUB_DIRECTORY = "";
     const isProd = process.env.NODE_ENV == "production"
 
     return (

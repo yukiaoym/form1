@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import common from './api/common.json';
 import CyberLogo from '../public/CyberSolutions.png';
 
-//const SUB_DIRECTORY = "/form";
-const SUB_DIRECTORY = "";
+const SUB_DIRECTORY = "/form";
+//const SUB_DIRECTORY = "";
 const isProd = process.env.NODE_ENV == "production"
 
 const Background = styled.div`
@@ -23,12 +23,13 @@ const Main = styled.div`
 `
 const Title = styled.h1`
     font-size: 1.6rem;
+    font-weight: bold;
     line-height: 40px;
     color: ${common.Color.text};
-    font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-align: center;
-    margin: 32px 0;
+    // margin: 34px 0 12px 0;
+    margin: 34px 0 68px 0;
 `
 const Contents = styled.main`
     max-width: 800px;
@@ -48,18 +49,28 @@ const Footer = styled.footer`
     color: ${common.Color.text};
     margin-top: 24px;
 `
+const SubTitle = styled.div`
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 68px auto;
+    font-size: 1.0rem;
+    color: ${common.Color.text_w};
+    background-color: ${common.Color.main};
+    padding: 4px 24px;
+`
 export default function App() {
     return (
         <Background>
             <Main>  
                 <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" }  height={36} />
+                <Title>ニフクラ環境作成フォーム</Title>
+                {/* <SubTitle>新規作成</SubTitle> */}
                 <Contents>
-                    <Title>環境作成フォーム</Title>
-                    <Explanation>
+                    {/* <Explanation>
                         下記フォームに必要項目を入力して送信してください。<br />
                         3営業日以内に担当者より折り返しご連絡させていただきます。<br />
                         お急ぎの方はお電話にてお問い合わせください。
-                    </Explanation>
+                    </Explanation> */}
                     <Form />
                 </Contents>
             </Main>

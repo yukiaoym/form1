@@ -19,13 +19,13 @@ export default async function SendAPI(data:dataProps) {
     for (const key in data) {
         record[key] = {"value": data[key]}
     }
-    const response_data = {
-        "app": 73,
-        "record": record
-    }
+    var formData = new FormData();
+    formData.append("file", data.SAML認証_メタデータ[0]);
+    console.log(data.SAML認証_メタデータ[0])
+    console.log(formData)
 
     try {
-        const res = await axios.post(url, response_data, { headers: headers });
+        const res = await axios.post(url, formData, { headers: headers });
         const result = Number(res.data);
         return result
     } catch (error) {

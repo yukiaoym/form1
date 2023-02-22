@@ -16,18 +16,18 @@ export default function Form() {
     })
     
     const handleSubmit = methods.handleSubmit((data) => {
-        if (pageNumber < 4) {
+        if (pageNumber < 2) {
             setPageNumber(pageNumber => pageNumber + 1)
             scrollTo(0,0)
         }     
-        if (pageNumber == 4) {
-            //console.log(data)
-            // SendAPI(data).then(result => {
-            //     setResponseCode(result)
-            //     setPageNumber(pageNumber => pageNumber + 1)
-            // });
-            scrollTo(0,0)
-            setPageNumber(pageNumber => pageNumber + 1)
+        if (pageNumber == 2) {
+            // console.log(data.SAML認証_メタデータ.item(0))
+            // data['SAML認証_メタデータ'] = data.SAML認証_メタデータ[0]
+            SendAPI(data).then(result => {
+                setResponseCode(result)
+                setPageNumber(pageNumber => pageNumber + 1)
+                scrollTo(0,0)
+            });
         } 
     });
 
@@ -39,10 +39,12 @@ export default function Form() {
         <FormProvider {...methods}>
             <form onSubmit={handleSubmit} >
                 {pageNumber === 1 && <Page1 />}
-                {pageNumber === 2 && <Page2 />}
+                {pageNumber === 2 && <Confirm onBack={() => onBack()}/>}
+                {pageNumber === 3 && <Result responseCode={responseCode} />}
+                {/* {pageNumber === 2 && <Page2 />}
                 {pageNumber === 3 && <Page3 />}
                 {pageNumber === 4 && <Confirm onBack={() => onBack()}/>}
-                {pageNumber === 5 && <Result responseCode={responseCode} />}
+                {pageNumber === 5 && <Result responseCode={responseCode} />} */}
             </form>
         </FormProvider>
     )
