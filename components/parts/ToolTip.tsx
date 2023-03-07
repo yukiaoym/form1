@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import common from '../common.json';
+import common from '../config/common.json';
 import React, { useState } from 'react';
 
 const ToolTipArea = styled.div<{ show: boolean }>`

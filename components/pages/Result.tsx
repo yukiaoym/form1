@@ -20,6 +20,11 @@ export default function Result({responseCode}:{responseCode: number}) {
                 <SubTitle>送信完了</SubTitle>
                 <Message>ご協力いただき、ありがとうございました。</Message>
             </>
+            : responseCode == 199 ?
+                <>
+                <SubTitle>送信中</SubTitle>
+                <Message>しばらくお待ちください。</Message>
+                </>
             :
             <>
                 <SubTitle>送信失敗</SubTitle>

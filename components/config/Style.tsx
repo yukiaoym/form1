@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import common from '../common.json';
+import common from './common.json';
 
 export const Section = styled.section`
     margin-bottom: 16px;
@@ -91,6 +91,9 @@ export const Section = styled.section`
     input[type='checkbox'] {
         position: relative;
     }
+    input[type='checkbox'] {
+        position: relative;
+    }
     input[type='checkbox']:after {
         content: '';
         display: none;
@@ -104,7 +107,7 @@ export const Section = styled.section`
         left: 1px;
     }
     input[type='checkbox']:checked {
-        background-color: ${common.Color.main};
+        background-color: ${common.Color.main} !important;
         border: 1px solid ${common.Color.main};
     }
     input[type='checkbox']:checked:after {
@@ -112,15 +115,17 @@ export const Section = styled.section`
     }
 
     //Disabled
-    input:disabled, 
+    input[type='text']:disabled, 
+    input[type='number']:disabled, 
+    input[type='date']:disabled,
     select:disabled, 
     textarea:disabled {
         background-color: ${common.Color.gray};
     }
-    input[type='radio']:disabled, input[type='checkbox']:disabled {
-        background-color: ${common.Color.gray};
+    input[type='radio']:disabled,
+    input[type='checkbox']:disabled {
+        background-color: ${common.Color.gray3};
     }
-
     input::placeholder {
         color: ${common.Color.gray3};
     }

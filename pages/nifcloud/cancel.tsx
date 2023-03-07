@@ -1,7 +1,6 @@
-import Form from './api/Form';
+import Form from '../../components/pages/Form';
 import styled from 'styled-components';
-import common from './api/common.json';
-import CyberLogo from '../public/CyberSolutions.png';
+import common from '../../components/config/common.json';
 
 const SUB_DIRECTORY = "/form";
 //const SUB_DIRECTORY = "";
@@ -28,7 +27,7 @@ const Title = styled.h1`
     color: ${common.Color.text};
     letter-spacing: 1px;
     text-align: center;
-    // margin: 34px 0 12px 0;
+    //margin: 34px 0  0;
     margin: 34px 0 68px 0;
 `
 const Contents = styled.main`
@@ -49,29 +48,43 @@ const Footer = styled.footer`
     color: ${common.Color.text};
     margin-top: 24px;
 `
-const SubTitle = styled.div`
-    text-align: center;
-    width: fit-content;
-    margin: 0 auto 68px auto;
-    font-size: 1.0rem;
-    color: ${common.Color.text_w};
-    background-color: ${common.Color.main};
-    padding: 4px 24px;
+
+const Menu = styled.div<{ type: string }>`
+    display: flex;
+    justify-content: space-between;
+    height: 36px;
+    div {
+        padding: 0 12px;
+        width: fit-content;
+        font-size: 1.0rem;
+        line-height: 36px;
+        color: ${common.Color.text_w};
+        background-color: ${(props) => props.type == 'cancel' ? common.ProductColor.MailGates : common.Color.main};
+    }
 `
+const MenuDict = {
+    'new': '新規',
+    'modify': '変更',
+    'cancel': '解約'
+}
+
 export default function App() {
+    const type = 'cancel'
     return (
         <Background>
-            <Main>  
-                <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" }  height={36} />
+            <Main>
+                <Menu type={type}>
+                    <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
+                    <div>{MenuDict[type]}</div>
+                </Menu>
                 <Title>ニフクラ環境作成フォーム</Title>
-                {/* <SubTitle>新規作成</SubTitle> */}
                 <Contents>
                     {/* <Explanation>
                         下記フォームに必要項目を入力して送信してください。<br />
                         3営業日以内に担当者より折り返しご連絡させていただきます。<br />
                         お急ぎの方はお電話にてお問い合わせください。
                     </Explanation> */}
-                    <Form />
+                    <Form type={type} />
                 </Contents>
             </Main>
             <Footer>

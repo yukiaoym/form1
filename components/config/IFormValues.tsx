@@ -1,6 +1,9 @@
 export type IFormValues = {       
-    "依頼事項": string;
+    "タイプ": string;
     "開通希望日": string;
+    "変更希望日": string;
+    "解約希望日": string;
+    "解約理由": string;
     "ご契約社名": string;
     "ドメイン": string;
     "ご契約サービス": string;
@@ -22,23 +25,28 @@ export type IFormValues = {
     "切替前のMXレコード": string;
     "切替後のMXレコード": string;
     "中継許可サーバーIPアドレス": string;
+    "中継許可サーバーFQDN": string;
     "中継先サーバーIPアドレス": string;
     "中継先サーバーFQDN": string;
     "認証_サーバー": string;
     "認証_ポート番号": string;
     "POP認証時にメールアドレス全体で認証する": string;
     "オプション_DKIM": string;
-    "MGΣ_プラン": string | string[];
+    "MGΣ_プラン": string[];
+    "基本サービス": string[];
+    "オプション": string[];
+    "MGΣ_プラン_追加": string[];
+    "MGΣ_プラン_削除": string[];
     "MG_希望アクセスURL1": string;
     "MG_希望アクセスURL2": string;
     "MG_希望アクセスURL3": string;
     "MailGates_IPアクセス制御": string;
     "MailGates_管理者アカウントID": string;
-    "管理者メールアドレス1": string;
-    "管理者メールアドレス2": string;
-    "管理者メールアドレス3": string;
-    "管理者メールアドレス4": string;
-    "管理者メールアドレス5": string;
+    "管理者アカウント1": string;
+    "管理者アカウント2": string;
+    "管理者アカウント3": string;
+    "管理者アカウント4": string;
+    "管理者アカウント5": string;
     "パートナー_会社名": string;
     "パートナー_部署": string;
     "パートナー_担当者": string;
@@ -53,4 +61,5 @@ export type IFormValues = {
     "開通通知用_会社名": string;
     "開通通知用_担当者名": string;
     "開通通知用_TO宛先": string;
+    "備考": string;
     }

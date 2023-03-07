@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import ToolTip from "./ToolTip";
-import NamesDict from '../NamesDict.json';
+import NamesDict from '../config/NamesDict.json';
 
 type NamesDictProps = {
     [name: string]: {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import common from '../common.json';
+import common from '../config/common.json';
 
 type PageProps = {
     page: number;
@@ -15,28 +15,40 @@ const ProgressArea = styled.div<{ page: number }>`
         justify-content: space-between;
     }
     ol li {
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         background-color: ${common.Color.bg2};
         text-align: center;
-        font-size: 1.0rem;
+        font-size: 1.2rem;
+        color: ${common.Color.text_w};
+        font-weight: bold;
         position: relative;
-        line-height: 64px;
-        color: ${common.Color.gray3}
+        line-height: 48px;
+    }
+    ol li:nth-child(-n+2)::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border: 0;
+        border-top: solid 1px ${common.Color.text};
+        border-right: solid 1px ${common.Color.text};
+        transform: rotate(45deg);
+        position: absolute;
+        top: 20px;
+        right: -25px;
     }
     ol li:nth-child(${(props) => props.page}) {
         background-color: ${common.Color.main};
-        color: ${common.Color.text_w};
     }
 `
-export default function Menu({page}:PageProps) {
+export default function Progress({page}:PageProps) {
     return (
         <ProgressArea page={page}>
             <ol>
-                <li>新規</li>
-                <li>変更</li>
-                <li>解約</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
             </ol>
         </ProgressArea>
     );

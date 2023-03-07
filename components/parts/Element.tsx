@@ -1,12 +1,13 @@
-import { Path, UseFormRegister, useFieldArray, Control } from 'react-hook-form';
+import { Path, UseFormRegister, useFieldArray, Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import { IFormValues } from '../IFormValues';
+import { IFormValues } from '../config/IFormValues';
 import SectionTitle from './SectionTitle';
+import { names_dict , MGPlanProps } from '../config/common_setting'
 
 type InputProps = {
     label: Path<IFormValues>;
-    sublabel?: string;
     register: UseFormRegister<IFormValues>;
+    sub: boolean;
     type?: string;
     required?: boolean;
     errors?: object;
@@ -16,9 +17,20 @@ type InputProps = {
     pattern?: RegExp;
     errmsg?: string;
     placeholder?: string;
+    mgplan_list?: MGPlanProps[];
     list?: string[];
-    sub: boolean;
     id?: string;
+    value?: string;
+}
+
+export function HideInput({label, register, value, sub }:InputProps) {
+    return (
+        <input
+            type='hidden'
+            {...register(label)}
+            value={value}
+        />
+    )
 }
 
 export function Input ({label, register, sub, type, min, required, errors, disabled, placeholder, pattern, errmsg }:InputProps) {
@@ -69,6 +81,7 @@ export function InputFile ({label, register, disabled, sub, id }:InputProps) {
         <>
             <SectionTitle label={label} sub={sub} />
             <input
+
                 id={id}
                 type='file'
                 {...register(label)}
@@ -122,38 +135,38 @@ export function Radio ({label, register, required, list, sub }:InputProps) {
     )
 }
 
-export function Checkbox({ label, register, list, disabled, sub, errors }:InputProps) {
-    if (list === undefined) {
-        list = []
+
+export function Checkbox({ label, register, mgplan_list, sub, errors }:InputProps) {
+    if ( mgplan_list == undefined ) {
+        mgplan_list = []
     }
     return (
         <>
         <SectionTitle label={label} sub={sub} />
         <div className='checkbox' >
-            {list.map((item, index) => 
-                <label key={index} htmlFor={`checkbox-${index}`} >
+            {mgplan_list.map((item, index) => 
+                <label key={`${label}_${item.name}`} htmlFor={`${label}_${item.name}`} >
                     <input
                         autoComplete='off'
                         type='checkbox'
                         {...register(label,{
-                            validate: {
-                                atLeastOneRequired: (value:any) =>
-                                  (value && value.length >= 1) ||
-                                  "1つ以上選択してください",
-                              },
+                            // validate: {
+                            //     atLeastOneRequired: (value:any) =>
+                            //       (value && value.length >= 1) ||
+                            //       "1つ以上選択してください",
+                            //   },
                         })}
-                        defaultChecked={false}
-                        value={item} 
-                        id={`checkbox-${index}`} 
-                        disabled={disabled} />
-                    <span>{item}</span>
+                        value={item.name}
+                        id={`${label}_${item.name}`}
+                    />
+                    <span>{names_dict[item.name]['pages']}</span>
                 </label>
             )}
-            <ErrorMessage
+            {/* <ErrorMessage
                 errors={errors}
                 name={label}
                 render={({ message } : {message: string }) => <span className="error" >{message}</span>}
-            />
+            /> */}
         </div>
         </>
     );

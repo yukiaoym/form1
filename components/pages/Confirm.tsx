@@ -1,20 +1,10 @@
 import { useFormContext } from "react-hook-form";
-import { IFormValues } from "./IFormValues";
+import { IFormValues } from "../config/IFormValues";
 import React from 'react';
-import Button from "./parts/Button";
+import Button from "../parts/Button";
 import styled from 'styled-components';
-import common from './common.json';
-import NamesDict from './NamesDict.json';
-
-
-type NamesDictProps = {
-    [name: string]: {
-        pages: string,
-        confirm: string
-    }
-}
-const names_dict:NamesDictProps = NamesDict.Names
-
+import common from '../config/common.json';
+import { names_dict } from '../config/common_setting'
 
 const Table = styled.table`
     width: 100%;
@@ -47,30 +37,43 @@ export default function Confirm({ onBack }: {onBack:() => void}) {
     const { getValues } = methods;
     const values:{[key:string]: any} = getValues();
     const rows = []
-
+    
+    
+    function ConvName(name:string) {
+        return names_dict[name]["confirm"]
+    }
     for (const key in names_dict) {
         if (values[key] != undefined) {
-            if (key != 'SAML認証_メタデータ') {
+            if (key == 'SAML認証_メタデータ' && values[key].length > 0 ) {
                 const tds = (
                     <>
-                    <td>{names_dict[key]["confirm"]}</td>
-                    <td>{values[key]}</td>
+                    <td>{ConvName(key)}</td>
+                    <td>{values[key][0].name}</td>
                     </>
                 )
                 rows.push(tds)
-            } else if ( values[key].length > 0 ) {
+            } else if ( key == 'MGΣ_プラン') {
                 const tds = (
                     <>
-                    <td>{names_dict[key]["confirm"]}</td>
-                    <td>{values[key][0].name}</td>
+                    <td>{ConvName(key)}</td>
+                    {values[key] != false ?
+                    <td>
+                        {values[key].map((item: string, index: number) => 
+                            <p key={index}>{ConvName(item)}</p>
+                        )}
+                    </td>
+                    :
+                    <td>
+                    </td>                 
+                    }
                     </>
                 )
                 rows.push(tds)
             } else {
                 const tds = (
                     <>
-                    <td>{names_dict[key]["confirm"]}</td>
-                    <td></td>
+                    <td>{ConvName(key)}</td>
+                    <td>{values[key]}</td>
                     </>
                 )
                 rows.push(tds) 

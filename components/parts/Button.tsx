@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import common from '../common.json';
+import common from '../config/common.json';
 
 const ButtonArea = styled.div<{ isBack: boolean }>`
     margin: 36px 0 70px 0;
