@@ -8,7 +8,7 @@ import { get4DaysLater, MGPlan } from '../config/common_setting'
 
 export default function Page2() {
     const methods = useFormContext<IFormValues>();
-    const { register, formState: { errors }, setValue } = methods;
+    const { register, formState: { errors } } = methods;
 
     return (
         <>
@@ -18,6 +18,9 @@ export default function Page2() {
             </Section>
             <Section>
                 <Input label='ドメイン' register={register} required={true} errors={errors} sub={false} />
+            </Section>
+            <Section>
+                <Input label='変更希望日' register={register} required={true} type='date' min={get4DaysLater()} errors={errors} sub={false} />
             </Section>
             <Section>
                 <Input 
@@ -31,9 +34,6 @@ export default function Page2() {
                     // errmsg='10アカウント単位で指定してください'
                     sub={false}
                 />
-            </Section>
-            <Section>
-                <Input label='変更希望日' register={register} required={true} type='date' min={get4DaysLater()} errors={errors} sub={false} />
             </Section>
             <Section>
                 <Checkbox label='MGΣ_プラン_追加' register={register} mgplan_list={MGPlan} sub={false} errors={errors} />

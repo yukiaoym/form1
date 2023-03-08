@@ -1,6 +1,7 @@
 import Form from '../../components/pages/Form';
 import styled from 'styled-components';
 import common from '../../components/config/common.json';
+import { useRouter } from "next/router";
 
 const SUB_DIRECTORY = "/form";
 //const SUB_DIRECTORY = "";
@@ -49,7 +50,7 @@ const Footer = styled.footer`
     margin-top: 24px;
 `
 
-const Menu = styled.div<{ type: string }>`
+const Menu = styled.div<{type: string}>`
     display: flex;
     justify-content: space-between;
     height: 36px;
@@ -62,34 +63,37 @@ const Menu = styled.div<{ type: string }>`
         background-color: ${(props) => props.type == 'cancel' ? common.ProductColor.MailGates : common.Color.main};
     }
 `
-const MenuDict = {
+const MenuDict:{[routeType:string]:string} = {
     'new': '新規',
     'modify': '変更',
     'cancel': '解約'
 }
 
-export default function App() {
-    const type = 'cancel'
-    return (
-        <Background>
-            <Main>
-                <Menu type={type}>
-                    <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
-                    <div>{MenuDict[type]}</div>
-                </Menu>
-                <Title>ニフクラ環境作成フォーム</Title>
-                <Contents>
-                    {/* <Explanation>
-                        下記フォームに必要項目を入力して送信してください。<br />
-                        3営業日以内に担当者より折り返しご連絡させていただきます。<br />
-                        お急ぎの方はお電話にてお問い合わせください。
-                    </Explanation> */}
-                    <Form type={type} />
-                </Contents>
-            </Main>
-            <Footer>
-                <small>©2023 CyberSolutions Inc</small>
-            </Footer>
-        </Background>
-    );
+export default function New() {
+    const router = useRouter();
+    const routeType = router.query.type
+    if (routeType !== undefined && typeof routeType == "string") {
+        return (
+            <Background>
+                <Main>
+                    <Menu type={routeType}>
+                        <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
+                        <div>{MenuDict[routeType]}</div>
+                    </Menu>
+                    <Title>ニフクラ環境作成フォーム</Title>
+                    <Contents>
+                        {/* <Explanation>
+                            下記フォームに必要項目を入力して送信してください。<br />
+                            3営業日以内に担当者より折り返しご連絡させていただきます。<br />
+                            お急ぎの方はお電話にてお問い合わせください。
+                        </Explanation> */}
+                        <Form type={routeType} />
+                    </Contents>
+                </Main>
+                <Footer>
+                    <small>©2023 CyberSolutions Inc</small>
+                </Footer>
+            </Background>
+        );
+    }
 }
