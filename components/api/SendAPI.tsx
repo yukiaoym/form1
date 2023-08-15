@@ -5,11 +5,11 @@ type dataProps = {
 }
 
 //const url = 'http://172.22.8.39:8081/form';
-const url = 'https://sub.cybersolutions.co.jp:8081/form'
-const headers = {
-    //"Content-type": "application/json",
-    "Content-type": "multipart/form-data"
-}
+// const url = 'https://sub.cybersolutions.co.jp:8081/form'
+// const headers = {
+//     //"Content-type": "application/json",
+//     "Content-type": "multipart/form-data"
+// }
 
 
 export function getBase64(file:File) {
@@ -38,8 +38,9 @@ export default async function SendAPI(data:dataProps) {
         }
     }
     try {
-        const res = await axios.post(url, formData, { headers: headers });
-        const result = Number(res.data);
+        // const res = await axios.post(url, formData, { headers: headers });
+        // const result = Number(res.data);
+        const result = Number(200);
         return result
     } catch (error) {
         const result = Number(400)
