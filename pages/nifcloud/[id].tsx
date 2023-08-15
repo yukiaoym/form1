@@ -100,10 +100,10 @@ export default function New({type}:TypeProps) {
     return (
         <Background>
             <Main>
-                {/* <Menu type={type}>
-                    <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
-                    <div>{MenuDict[type]}</div>
-                </Menu> */}
+                <Menu type={type}>
+                    {/* <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
+                    <div>{MenuDict[type]}</div> */}
+                </Menu>
                 <Title>SAMPLEフォーム</Title>
                 <Contents>
                     {/* <Explanation>
