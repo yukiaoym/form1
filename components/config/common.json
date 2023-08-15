@@ -53,11 +53,11 @@
         "Extic"
     ],
     "MultiAdminList": [
-        "admin-abcde@syncdot.com",
-        "admin-fghij@syncdot.com",
-        "admin-klmno@syncdot.com",
-        "admin-pqrst@syncdot.com",
-        "admin-uvwxyz@syncdot.com",
-        "admin-etc@syncdot.com"
+        "admin-abcde@example.co.jp",
+        "admin-fghij@example.co.jp",
+        "admin-klmno@example.co.jp",
+        "admin-pqrst@example.co.jp",
+        "admin-uvwxyz@example.co.jp",
+        "admin-etc@example.co.jp"
     ]
 }

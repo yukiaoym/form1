@@ -104,7 +104,7 @@ export default function New({type}:TypeProps) {
                     <img src={ isProd ? `${SUB_DIRECTORY}/CyberSolutions.png` : "/CyberSolutions.png" } />
                     <div>{MenuDict[type]}</div>
                 </Menu>
-                <Title>SYNCDOT環境作成フォーム</Title>
+                <Title>SAMPLEフォーム</Title>
                 <Contents>
                     {/* <Explanation>
                         下記フォームに必要項目を入力して送信してください。<br />
@@ -115,7 +115,7 @@ export default function New({type}:TypeProps) {
                 </Contents>
             </Main>
             <Footer>
-                <small>©2023 CyberSolutions Inc</small>
+                <small>©2023 Aoyama</small>
             </Footer>
         </Background>
     );
