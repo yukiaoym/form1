@@ -6,6 +6,7 @@ export type IFormValues = {
     "解約理由": string;
     "ご契約社名": string;
     "ドメイン": string;
+    "複数ドメイン管理者メールアドレス": string;
     "ご契約サービス": string;
     "ご契約アカウント数": number;
     "ユーザー認証方式": string;

@@ -4,6 +4,7 @@ import NamesDict from '../config/NamesDict.json';
 
 export const service_list:string[] = common.ServiceList
 export const auth_list:string[] = common.AuthList
+export const multi_admin_list:string[] = common.MultiAdminList
 export const idp_list:string[] = common.SAMLIdpList
 
 export function get4DaysLater() {

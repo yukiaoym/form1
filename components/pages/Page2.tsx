@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form";
 import React from 'react';
 import { IFormValues } from "../config/IFormValues";
 import Button from "../../components/parts/Button";
-import { Input, HideInput, Checkbox } from "../../components/parts/Element";
+import { Input, HideInput, Checkbox, MultiText } from "../../components/parts/Element";
 import { Section } from "../config/Style";
 import { get4DaysLater, MGPlan } from '../config/common_setting'
 
@@ -41,6 +41,9 @@ export default function Page2() {
             <Section>
                 <Checkbox label='MGΣ_プラン_削除' register={register} mgplan_list={MGPlan} sub={false} errors={errors} />
             </Section>
+            <Section>
+                <MultiText label='備考' register={register} errors={errors} sub={false} />
+            </Section>            
             <Button value='次へ' isBack={false} />
         </>
     )

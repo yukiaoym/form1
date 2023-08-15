@@ -5,7 +5,7 @@ import Button from '../../components/parts/Button';
 import { Section } from "../config/Style";
 import SectionTitle from "../../components/parts/SectionTitle";
 import { Input, HideInput, Checkbox, Radio, Select, MultiText, InputFile } from "../../components/parts/Element";
-import { auth_list, idp_list, get4DaysLater, MGPlan } from '../config/common_setting'
+import { auth_list, multi_admin_list, idp_list, get4DaysLater, MGPlan } from '../config/common_setting'
 
 
 export default function Page1() {
@@ -24,6 +24,9 @@ export default function Page1() {
             </Section>
             <Section>
                 <Input label='ドメイン' register={register} required={true} errors={errors} sub={false} />
+            </Section>
+            <Section>
+                <Select label='複数ドメイン管理者メールアドレス' register={register} list={multi_admin_list} disabled={false} sub={false} />
             </Section>
             <Section>
                 <Input 
@@ -92,7 +95,7 @@ export default function Page1() {
             <Section>
                 <SectionTitle label='連携サーバー情報' required={false} sub={false} />
                 <Input label='中継許可サーバーIPアドレス' register={register} required={true} errors={errors} sub={true} /> 
-                <Input label='中継許可サーバーFQDN' register={register} required={false} errors={errors} sub={true} />
+                {/* <Input label='中継許可サーバーFQDN' register={register} required={false} errors={errors} sub={true} /> */}
                 <Input label='中継先サーバーIPアドレス' register={register} required={false} errors={errors} sub={true} />
                 <Input 
                     label='中継先サーバーFQDN' 
@@ -145,7 +148,7 @@ export default function Page1() {
                 <Input label='管理者アカウント3' register={register} required={false} errors={errors} sub={true} />
                 <Input label='管理者アカウント4' register={register} required={false} errors={errors} sub={true} />
                 <Input label='管理者アカウント5' register={register} required={false} errors={errors} sub={true} />
-            </Section>
+            </Section>      
             <Section>
                 <MultiText label='備考' register={register} errors={errors} sub={false} />
             </Section>
