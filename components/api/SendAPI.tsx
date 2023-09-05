@@ -4,13 +4,6 @@ type dataProps = {
     [key:string] : any
 }
 
-//const url = 'http://172.22.8.39:8081/form';
-// const url = 'https://sub.cybersolutions.co.jp:8081/form'
-// const headers = {
-//     //"Content-type": "application/json",
-//     "Content-type": "multipart/form-data"
-// }
-
 
 export function getBase64(file:File) {
     return new Promise((resolve, reject) => {
